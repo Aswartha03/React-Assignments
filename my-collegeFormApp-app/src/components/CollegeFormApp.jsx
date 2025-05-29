@@ -10,7 +10,7 @@ let initialState = {
     state: "",
     coordinates: { latitude: "", longtitude: "" },
   },
-  courser_offered: [],
+  courses_offered: [],
 };
 function formReducer(state, action) {
   switch (action.type) {
