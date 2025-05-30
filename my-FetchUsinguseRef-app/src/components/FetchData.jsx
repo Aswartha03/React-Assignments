@@ -4,7 +4,7 @@ let limit = 4
 function FetchData() {
   let [array, setArray] = useState([]);
   let [currentPage,setcurrentPage] = useState(1)
-  let pageRef = useRef(1);
+  let pageRef = useRef(null);
 
   useEffect(()=>(
     async function dataFetch() {
@@ -28,21 +28,28 @@ function FetchData() {
   function handleNext(){
     if(end<array.length){
         setcurrentPage(currentPage+1)
-        pageRef.current+=1
+        
     }
         
   }
   function handlePrev(){
-    if(pageRef.current>=2){
+    if(currentPage>=2){
         setcurrentPage(currentPage-=1)
-        pageRef.current-=1
     }
   }
+  useEffect(()=>{
+    if(pageRef.current){
+        // pageRef.current.style.backgroundColor="red"
+        pageRef.current.style.color="red"
+    }
+},[currentPage])
   return (
     <>
       <div>
         <h3>Fetch Data Using useRef...</h3>
-        <p>Current Page : {pageRef.current}</p>
+        <p ref={pageRef}>Current Page : {currentPage}</p>
+         <button disabled={start==0} onClick={handlePrev} style={{margin:"10px"}}>Prev</button>
+        <button disabled={end==array.length} onClick={handleNext}>Next</button>
         <div id="items">
             {arr.map((item,index)=>(
             <div key={index}>
@@ -54,8 +61,7 @@ function FetchData() {
         ))}
         </div>
         
-        <button disabled={start==0} onClick={handlePrev} style={{margin:"10px"}}>Prev</button>
-        <button disabled={end==array.length} onClick={handleNext}>Next</button>
+       
       </div>
       
     </>
