@@ -18,15 +18,16 @@ function DisplaySnacks() {
   }
   return (
     <>
-      <button onClick={FetchData}>Fetch Data</button>
+      <button style={{margin:"10px"}} onClick={FetchData}>Fetch Data</button>
       <div id="snacks">
         {snacks.map((snack, index) => (
           <div key={index} id="snack">
-            <h3>{snack.value.title}</h3>
-            <p>{snack.value.category}</p>
-            <p>{snack.value.price}</p>
-            <p>{snack.value.rating}</p>
-            <p>{snack.value.createdAt}</p>
+            <h3>Title: {snack.value.title}</h3>
+            <p>Category: {snack.value.category}</p>
+            <p>Price: {snack.value.price}</p>
+            <p>Rating: {snack.value.rating}</p>
+            <p>CreatedAt: {snack.value.createdAt}</p>
+            <button onClick={""}>Edit Snack</button>
           </div>
         ))}
       </div>

@@ -40,11 +40,11 @@
 .read-the-docs {
   color: #888;
 }
-#snacks{
+#items{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px 20px;
 }
-#formInput input{
-  margin:10px ;
-  padding:10px;
+#items img{
+    width: 80%;
 }

@@ -45,7 +45,7 @@ function FormInput() {
   return (
     <>
       <h3>Create Snack..</h3>
-      <div>
+      <div id="formInput">
         <form onSubmit={handleSubmit}>
           <label>
             <input
