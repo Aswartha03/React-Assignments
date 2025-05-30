@@ -10,6 +10,9 @@ function FocusInput(){
         inputRef.current.style.margin = "10px"
         inputRef.current.style.border = "2px solid white"
         inputRef.current.style.borderRadius = "10px"
+        inputRef.current.style.backgroundColor = "white"
+        inputRef.current.style.color = "black"
+        inputRef.current.value = "Focused!"
     }
     return(
         <div>
