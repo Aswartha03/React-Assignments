@@ -9,14 +9,14 @@ function FetchData() {
   useEffect(() => {
     dispatch(fetchData())
   }, [dispatch]);
-  let totalPages = Math.ceil(array.length/limit)
+//   let totalPages = Math.ceil(array.length/limit)
   let end = limit*currentPage 
   let start = end-limit 
   let paginationArray = array.slice(start,end)
   function handleNext(){
-    if(currentPage<totalPages){
+    // if(currentPage<totalPages){
         setCurrentpage(currentPage+1)
-    }
+    // }
   }
   function handlePrev(){
     if(currentPage>1){
@@ -42,7 +42,7 @@ function FetchData() {
         </div>
         
         <button style={{margin:"10px"}} disabled={currentPage<=1} onClick={handlePrev}>Prev</button>
-        <button disabled={currentPage==totalPages} onClick={handleNext}>Next</button>
+        <button  onClick={handleNext}>Next</button>
       </div>
     </>
   );
